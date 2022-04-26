@@ -1,2 +1,2 @@
 # SpringSecurity
-Spring Security - Implementation of various Authentication type
+Spring Security - Implementation of various Authentication types
