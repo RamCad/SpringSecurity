@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class BasicController {
 
   @GetMapping("/spring-security")
-  public String testSecurity() {
+  public String userRole() {
     return "Spring Security!";
+  }
+
+  @GetMapping("/admin/spring-security")
+  public String adminRole() {
+    return "Spring Security Admin!";
   }
 
 }
