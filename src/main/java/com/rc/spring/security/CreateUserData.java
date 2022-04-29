@@ -26,9 +26,6 @@ public class CreateUserData implements CommandLineRunner {
     addUsers();
   }
 
-  /**
-   * Create users if not exist in DB
-   */
   private void addUsers() {
     if (!userService.checkUsersDataExistInDB()) {
       log.info("Save Users");
@@ -38,10 +35,6 @@ public class CreateUserData implements CommandLineRunner {
     }
   }
 
-  /**
-   * Create User with Roles for testing purpose
-   * @return List
-   */
   private List<User> createUsers() {
     final List<User> users = new ArrayList<>();
     users.add(create("client",

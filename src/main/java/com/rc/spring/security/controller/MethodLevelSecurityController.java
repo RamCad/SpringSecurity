@@ -1,7 +1,6 @@
 package com.rc.spring.security.controller;
 
 import com.rc.spring.security.dto.UserDto;
-import com.rc.spring.security.service.CustomUserDetailsService;
 import com.rc.spring.security.service.UserService;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -19,11 +18,6 @@ public class MethodLevelSecurityController {
 
   private final UserService userService;
 
-
-  /**
-   * Method to test for User having no roles i.e accessible to all
-   * @return
-   */
   @GetMapping("/anonymous")
   @ResponseStatus(HttpStatus.OK)
   public String accessToAllUsers() {
@@ -31,10 +25,6 @@ public class MethodLevelSecurityController {
     return "Welcome anonymous User";
   }
 
-  /**
-   * Method to test for CLIENT ROLE.
-   * @return
-   */
   @GetMapping("/client")
   @ResponseStatus(HttpStatus.OK)
   @PreAuthorize("hasRole('CLIENT')")
@@ -43,10 +33,6 @@ public class MethodLevelSecurityController {
     return "Welcome User (CLIENT)!";
   }
 
-  /**
-   * Method to test for Users who have ADMIN Role only.
-   * @return
-   */
   @GetMapping("/admin")
   @ResponseStatus(HttpStatus.OK)
   @PreAuthorize("hasRole('ADMIN')")
@@ -55,10 +41,6 @@ public class MethodLevelSecurityController {
     return "Welcome ADMIN User!";
   }
 
-  /**
-   * Method to test for Users who have SUPERVISOR Role only.
-   * @return
-   */
   @GetMapping("/supervisor")
   @ResponseStatus(HttpStatus.OK)
   @PreAuthorize("hasRole('SUPERVISOR')")
@@ -67,10 +49,6 @@ public class MethodLevelSecurityController {
     return "Welcome SUPERVISOR User!";
   }
 
-  /**
-   * Method to test for Users who have both ADMIN AND SUPERVISOR Role.
-   * @return
-   */
   @GetMapping("/admin-supervisor")
   @ResponseStatus(HttpStatus.OK)
   @PreAuthorize("hasRole('SUPERVISOR') AND hasRole('ADMIN')")
@@ -79,10 +57,6 @@ public class MethodLevelSecurityController {
     return "Welcome User (ADMIN OR SUPERVISOR)!";
   }
 
-  /**
-   * ADMIN Role can get all users.
-   * @return
-   */
   @GetMapping("/users")
   @ResponseStatus(HttpStatus.OK)
   @PreAuthorize("hasRole('ADMIN')")

@@ -17,3 +17,6 @@ Spring Security - Implementation of various Authentication types
   
 **method-level-security** - @PreAuthorize
   - Annotate configuration class which extends WebSecurityConfigurerAdapter with @EnableGlobalMethodSecurity
+ 
+ 
+Credits - https://www.techgeeknext.com/
